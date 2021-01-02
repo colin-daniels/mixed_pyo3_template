@@ -1,4 +1,4 @@
-name: Upload Python Package
+name: Publish Package
 
 on:
   release:
@@ -22,7 +22,7 @@ jobs:
         MATURIN_USERNAME: ${{ secrets.PYPI_USERNAME }}
         MATURIN_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
-        docker --rm -v "$PWD:/io" run docker.pkg.github.com/colin-daniels/maturin-docker/maturin:0.8.3-1.48.0 \
+        docker run --rm -v "$PWD:/io" docker.pkg.github.com/colin-daniels/maturin-docker/maturin:0.8.3-1.48.0 \
           publish                        \
           --interpreter python3.6        \
           --interpreter python3.7        \

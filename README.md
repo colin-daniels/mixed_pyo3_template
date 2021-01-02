@@ -19,6 +19,9 @@ $ sed -i 's/mixed_pyo3_template/your_repo_name/g' \
 # and move the python lib folder
 $ mv mixed_pyo3_template your_repo_name
 ```
+You also need to add `PYPI_USERNAME` and `PYPI_PASSWORD` as secrets to your repo, and
+optionally update `.github/workflows/python-publish.yml` so it uses the real PyPi
+instead of the test one.
 
 ## Development
 ```sh
