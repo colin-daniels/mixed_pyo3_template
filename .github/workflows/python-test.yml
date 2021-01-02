@@ -25,13 +25,13 @@ jobs:
       run: |
         docker run --rm -v "$PWD:/io" \
           docker.pkg.github.com/colin-daniels/maturin-docker/maturin:0.8.3-1.48.0 \
-          build \
-          -i 3.6 \
-          -i 3.7 \
-          -i 3.8 \
-          -i 3.9 \
-          --manylinux=2010 \
-          --bindings=pyo3 \
+          build                   \
+          --interpreter python3.6 \
+          --interpreter python3.7 \
+          --interpreter python3.8 \
+          --interpreter python3.9 \
+          --manylinux=2010        \
+          --bindings=pyo3         \
           --out dist
 
     - uses: actions/upload-artifact@v2
