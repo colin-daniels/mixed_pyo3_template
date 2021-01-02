@@ -9,7 +9,7 @@ env:
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -18,10 +18,10 @@ jobs:
         MATURIN_USERNAME: ${{ secrets.PYPI_USERNAME }}
         MATURIN_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
-        docker build . --file Dockerfile --tag maturin
-        docker run --rm -v $PWD:/app maturin publish \
-          --bindings=pyo3                            \
-          --manylinux=2010                           \
-          --username=${MATURIN_USERNAME}             \
-          --password=${MATURIN_PASSWORD}             \
+        docker --rm -v "$PWD:/io" run docker.pkg.github.com/colin-daniels/maturin-docker/maturin:0.8.3-1.48.0 \
+          publish                        \
+          --bindings=pyo3                \
+          --manylinux=2010               \
+          --username=${MATURIN_USERNAME} \
+          --password=${MATURIN_PASSWORD} \
           --repository-url https://test.pypi.org/legacy/

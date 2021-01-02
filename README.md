@@ -23,19 +23,3 @@ tests/test_lib.py ..                                                     [100%]
 
 ============================== 3 passed in 0.01s ===============================
 ```
-
-## Build
-```sh
-# build the docker image
-$ docker build -t maturin .
-# build the package/wheels
-$ docker run -v $PWD:/app --rm maturin build --release --bindings=pyo3 --manylinux=2010
-# the build command will output to target/wheels
-$ ls -l target/wheels
-total 8044
--rw-r--r-- 1 root root 1646710 Jan  1 16:09 example_pyo3_mixed-0.1.0.tar.gz
--rw-r--r-- 1 root root 1644948 Jan  1 16:09 example_pyo3_mixed-0.1.0-cp36-cp36m-manylinux2010_x86_64.whl
--rw-r--r-- 1 root root 1645299 Jan  1 16:09 example_pyo3_mixed-0.1.0-cp37-cp37m-manylinux2010_x86_64.whl
--rw-r--r-- 1 root root 1644438 Jan  1 16:09 example_pyo3_mixed-0.1.0-cp38-cp38-manylinux2010_x86_64.whl
--rw-r--r-- 1 root root 1645696 Jan  1 16:10 example_pyo3_mixed-0.1.0-cp39-cp39-manylinux2010_x86_64.whl
-```
