@@ -9,7 +9,7 @@ on:
 env:
   CARGO_TERM_COLOR: always
   # replace with your package name
-  PYTHON_PACKAGE_NAME: example_pyo3_mixed
+  PYTHON_PACKAGE_NAME: mixed_pyo3_template
 
 jobs:
   build:

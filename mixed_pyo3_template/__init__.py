@@ -1,4 +1,4 @@
-from .example_pyo3_mixed import sum_as_string
+from .mixed_pyo3_template import sum_as_string
 
 
 def hello():
