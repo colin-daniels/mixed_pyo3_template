@@ -1,4 +1,6 @@
 # example_pyo3_mixed
+![test-status](https://github.com/colin-daniels/example_pyo3_mixed/workflows/Python%20Tests/badge.svg)
+
 Example mixed python/rust package using `pyo3` and `maturin`.
 
 ## Development
