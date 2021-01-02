@@ -13,7 +13,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
     - uses: actions/checkout@v2
@@ -44,7 +44,7 @@ jobs:
     # Build wheels before testing
     needs: build
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
         python-version: ['3.6', '3.7', '3.8', '3.9']
@@ -72,6 +72,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: dist
+        path: dist
 
     - name: Install and test
       run: |
