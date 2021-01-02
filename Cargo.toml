@@ -1,6 +1,6 @@
 [package]
 name = "example_pyo3_mixed"
-version = "0.1.2"
+version = "0.2.0"
 authors = ["Colin Daniels <colin.r.daniels@gmail.com>"]
 description = "Example mixed python/rust package using pyo3 and maturin"
 edition = "2018"
@@ -19,7 +19,7 @@ features = ["extension-module"]
 [package.metadata.maturin]
 requires-python = ">=3.6"
 requires-dist = [
-    # e.g., "pymatgen==2020.12.31",
+    "numpy>=1.18",
 ]
 classifier = [
     "Development Status :: 1 - Planning",

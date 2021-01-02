@@ -17,9 +17,9 @@ $ PYTHONPATH=. pytest
 ============================= test session starts ==============================
 platform linux -- Python 3.8.5, pytest-6.2.1, py-1.10.0, pluggy-0.13.1
 rootdir: /home/user/build/example_pyo3_mixed
-collected 3 items
+collected 4 items
 
 tests/test_lib.py ..                                                     [100%]
 
-============================== 3 passed in 0.01s ===============================
+============================== 4 passed in 0.01s ===============================
 ```
