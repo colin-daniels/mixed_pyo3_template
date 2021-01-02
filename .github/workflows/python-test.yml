@@ -26,6 +26,10 @@ jobs:
         docker run --rm -v "$PWD:/io" \
           docker.pkg.github.com/colin-daniels/maturin-docker/maturin:0.8.3-1.48.0 \
           build \
+          -i 3.6 \
+          -i 3.7 \
+          -i 3.8 \
+          -i 3.9 \
           --manylinux=2010 \
           --bindings=pyo3 \
           --out dist
@@ -43,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.5', '3.6', '3.7', '3.8', '3.9']
+        python-version: ['3.6', '3.7', '3.8', '3.9']
 
     steps:
     - uses: actions/checkout@v2

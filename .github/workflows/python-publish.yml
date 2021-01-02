@@ -24,6 +24,10 @@ jobs:
       run: |
         docker --rm -v "$PWD:/io" run docker.pkg.github.com/colin-daniels/maturin-docker/maturin:0.8.3-1.48.0 \
           publish                        \
+          -i 3.6                         \
+          -i 3.7                         \
+          -i 3.8                         \
+          -i 3.9                         \
           --bindings=pyo3                \
           --manylinux=2010               \
           --username=${MATURIN_USERNAME} \
