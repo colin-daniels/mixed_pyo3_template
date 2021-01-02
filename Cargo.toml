@@ -14,7 +14,7 @@ features = ["extension-module"]
 
 [package.metadata.maturin]
 requires-dist = [
-    "pymatgen==2020.12.31",
+    # e.g., "pymatgen==2020.12.31",
 ]
 classifier = [
     "Development Status :: 1 - Planning",
