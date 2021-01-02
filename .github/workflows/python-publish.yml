@@ -13,8 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set manylinux build image
-      run:  --tag my-image-name:$(date +%s)
     - name: Build and publish
       env:
         MATURIN_USERNAME: ${{ secrets.PYPI_USERNAME }}
