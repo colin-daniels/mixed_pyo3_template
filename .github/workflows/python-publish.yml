@@ -13,24 +13,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.9'
-
-    - name: Install build dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install setuptools wheel twine maturin
-
+    - name: Set manylinux build image
+      run:  --tag my-image-name:$(date +%s)
     - name: Build and publish
       env:
         MATURIN_USERNAME: ${{ secrets.PYPI_USERNAME }}
         MATURIN_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
       run: |
-        maturin publish                  \
-          --bindings=pyo3                \
-          --manylinux=2010               \
-          --username=${MATURIN_USERNAME} \
+        docker build . --file Dockerfile --tag maturin
+        docker run --rm -v $PWD:/app maturin publish \
+          --bindings=pyo3                            \
+          --manylinux=2010                           \
+          --username=${MATURIN_USERNAME}             \
+          --password=${MATURIN_PASSWORD}             \
           --repository-url https://test.pypi.org/legacy/
